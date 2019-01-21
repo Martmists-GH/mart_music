@@ -1,10 +1,11 @@
+# pylint: disable=missing-docstring
+
 # External Libraries
 from setuptools import setup, find_packages
 
 VERSION = "0.1.0"
 DESCRIPTION = ""
 README = ""
-
 
 if __name__ == '__main__':
     setup(
@@ -24,12 +25,10 @@ if __name__ == '__main__':
             "sync": ["requests"],
             "async": ["aiohttp"]
         },
-        keywords=[
-            "music", "python", "API", "discord", "opus", "key"
-        ],
+        keywords=["music", "python", "API", "discord", "opus", "key"],
         classifiers=[
-            "Development Status :: 4 - Beta",
-            "Environment :: Console", "Intended Audience :: Developers",
+            "Development Status :: 4 - Beta", "Environment :: Console",
+            "Intended Audience :: Developers",
             "License :: OSI Approved :: MIT License",
             "Operating System :: OS Independent",
             "Programming Language :: Python :: 3",
@@ -37,5 +36,4 @@ if __name__ == '__main__':
             "Programming Language :: Python :: 3.6",
             "Programming Language :: Python :: 3.7",
             "Topic :: Software Development :: Libraries :: Python Modules"
-        ]
-    )
+        ])

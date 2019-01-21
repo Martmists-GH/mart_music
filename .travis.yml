@@ -1,0 +1,23 @@
+language: python
+
+dist: xenial
+
+python:
+  - "3.5"
+  - "3.6"
+  - "3.7"
+
+install:
+  - "pip install aiohttp requests"
+
+script:
+  # ignore output from install
+  - python setup.py install >> /dev/null
+  - snekchek
+
+cache:
+  - pip
+
+notifications:
+  email: false
+

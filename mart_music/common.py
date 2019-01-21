@@ -1,14 +1,18 @@
-from typing import List, Union, Dict, Any
+"""
+Functions and classes used by both sync and async clients.
+"""
+
+# Stdlib
+from typing import Any, Dict, List, Union
 
 
 class APIException(Exception):
     """
     Exception thrown when the API did not respond with a success status code.
     """
-    pass
 
 
-class Song:
+class Song:  # pylint: disable=too-few-public-methods
     """
     A class containing all information a song from the API contains
 
@@ -36,11 +40,15 @@ class Song:
         Additional information on a song, if available.
     """
 
-    def __init__(self,
-                 title: str, artist: str, dl_path: str,
-                 downloadable: bool, source: str,
-                 url: Union[str, None] = None,
-                 info: Union[Dict[str, Any], None] = None):
+    def __init__(  # pylint: disable=too-many-arguments
+            self,
+            title: str,
+            artist: str,
+            dl_path: str,
+            downloadable: bool,
+            source: str,
+            url: Union[str, None] = None,
+            info: Union[Dict[str, Any], None] = None):
         self.title = title
         self.artist = artist
         self.path = dl_path

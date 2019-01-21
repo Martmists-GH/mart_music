@@ -1,14 +1,25 @@
+"""
+Client for use in async applications
+"""
+
+# Stdlib
 from io import BytesIO
 from typing import List, Tuple
 from urllib.parse import quote
 
+# External Libraries
 from aiohttp import ClientSession
 
-from mart_music.common import _parse_songs, Song
+# Library internal code
+from mart_music.common import Song, _parse_songs
 from mart_music.ratelimits import RatelimitHandler
 
 
 class MusicClient:
+    """
+    Interfaces with the api using async functions
+    """
+
     ROOT = "https://music.martmists.com"
 
     def __init__(self, token: str):
@@ -33,7 +44,8 @@ class MusicClient:
 
         await self.ratelimiter_search.wait_async()
 
-        async with self.session.get(self.ROOT + "/api/search/" + quote(query)) as response:
+        async with self.session.get(self.ROOT + "/api/search/" +
+                                    quote(query)) as response:
             data = await response.json()
 
         return _parse_songs(data)
