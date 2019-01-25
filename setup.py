@@ -3,7 +3,7 @@
 # External Libraries
 from setuptools import setup, find_packages
 
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 DESCRIPTION = ""
 README = ""
 
